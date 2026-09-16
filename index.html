@@ -3,170 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpdaterLab - Loja de Aplicativos</title>
+    <title>Descubra já - Apps no Google Play</title>
+    <!-- Fonte Oficial do Android -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Ícones do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
     <style>
         :root {
-            --primary-color: #01875f; /* Verde característico */
-            --text-main: #202124;
+            --play-green: #01875f;
+            --text-primary: #202124;
             --text-secondary: #5f6368;
-            --border-color: #e8eaed;
-            --bg-color: #ffffff;
+            --border-light: #e8eaed;
+            --bg-body: #ffffff;
+            --star-color: #01875f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: 'Roboto', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.5;
         }
 
-        .header {
-            padding: 16px 24px;
-            border-bottom: 1px solid var(--border-color);
+        /* Top Navigation */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            padding: 12px 24px;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+
+        .top-nav .logo {
             display: flex;
             align-items: center;
             font-size: 22px;
             color: var(--text-secondary);
-        }
-
-        .header span {
+            text-decoration: none;
             font-weight: 500;
-            margin-left: 8px;
+        }
+        
+        .top-nav .logo img {
+            height: 40px;
+            margin-right: 8px;
         }
 
         .container {
-            max-width: 840px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 24px;
         }
 
-        /* Cabeçalho do App */
+        /* App Header Section */
         .app-header {
             display: flex;
             gap: 24px;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .app-icon {
-            width: 144px;
-            height: 144px;
+            width: 160px;
+            height: 160px;
             border-radius: 20%;
-            background: linear-gradient(135deg, #01875f, #005b4f);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 48px;
+            font-size: 56px;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
-        .app-info {
-            flex: 1;
+        .app-title-section {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            flex: 1;
         }
 
         .app-title {
-            font-size: 28px;
-            margin: 0 0 4px 0;
+            font-size: 32px;
             font-weight: 500;
+            margin-bottom: 4px;
+            line-height: 1.2;
         }
 
-        .app-dev {
-            color: var(--primary-color);
+        .app-developer {
+            color: var(--play-green);
+            font-weight: 500;
             font-size: 16px;
-            margin: 0 0 16px 0;
-            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 12px;
         }
 
-        .app-stats {
+        .app-tags {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        /* Stats Row */
+        .stats-row {
             display: flex;
             gap: 32px;
+            align-items: center;
             margin-bottom: 24px;
-            color: var(--text-secondary);
-            font-size: 14px;
         }
 
-        .stat-item {
+        .stat-block {
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
 
-        .stat-value {
-            color: var(--text-main);
-            font-weight: 500;
+        .stat-block:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -16px;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background-color: var(--border-light);
+        }
+
+        .stat-top {
             font-size: 16px;
-            margin-bottom: 4px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
-        /* Botão de Instalação */
+        .stat-bottom {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .material-symbols-outlined.star {
+            font-size: 14px;
+            font-variation-settings: 'FILL' 1;
+        }
+
+        /* Install Button */
         .install-btn {
-            background-color: var(--primary-color);
+            background-color: var(--play-green);
             color: white;
             border: none;
-            padding: 10px 48px;
+            padding: 12px 0;
             border-radius: 8px;
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
-            text-align: center;
-            width: fit-content;
-            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 400px;
+            transition: background-color 0.2s, box-shadow 0.2s;
         }
 
         .install-btn:hover {
             background-color: #00704e;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
-        /* Capturas de Tela */
+        /* Screenshots */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0 20px 0;
+        }
+
         .section-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 500;
-            margin: 32px 0 16px 0;
         }
 
-        .screenshots {
+        .screenshots-container {
             display: flex;
             gap: 16px;
             overflow-x: auto;
             padding-bottom: 16px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .screenshots-container::-webkit-scrollbar {
+            display: none; /* Chrome */
         }
 
-        .screenshot-img {
+        .screenshot {
             min-width: 200px;
-            height: 350px;
+            height: 400px;
             background-color: #f1f3f4;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            scroll-snap-align: start;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-secondary);
+            color: #9aa0a6;
+            font-weight: 500;
+            border: 1px solid var(--border-light);
         }
 
-        /* Sobre este app */
-        .description {
+        /* About App */
+        .about-text {
             font-size: 14px;
-            line-height: 1.5;
             color: var(--text-secondary);
+            line-height: 1.6;
         }
 
-        /* Avaliações */
-        .reviews-container {
-            margin-top: 24px;
-        }
-
-        .review {
+        /* Ratings & Reviews */
+        .ratings-overview {
+            display: flex;
+            gap: 32px;
+            align-items: center;
             margin-bottom: 32px;
         }
 
-        .review-header {
+        .rating-huge {
+            font-size: 64px;
+            font-weight: 400;
+            line-height: 1;
+            color: var(--text-primary);
+        }
+
+        .rating-stars {
+            color: var(--star-color);
+            display: flex;
+            margin: 8px 0;
+        }
+
+        .rating-count {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .review-card {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .reviewer-info {
             display: flex;
             align-items: center;
             gap: 16px;
@@ -174,20 +269,27 @@
         }
 
         .avatar {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background-color: #e8eaed;
+            background-color: #673AB7;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-secondary);
-            font-weight: bold;
+            font-size: 14px;
         }
 
-        .author-name {
+        .reviewer-name {
             font-size: 14px;
             font-weight: 500;
+        }
+
+        .review-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
         }
 
         .review-date {
@@ -195,97 +297,173 @@
             color: var(--text-secondary);
         }
 
-        .stars {
-            color: var(--primary-color);
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-
-        .review-text {
+        .review-content {
             font-size: 14px;
             color: var(--text-secondary);
             line-height: 1.4;
+        }
+
+        .helpful-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .app-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .app-title-section {
+                align-items: center;
+            }
+            .install-btn {
+                max-width: 100%;
+            }
+            .stats-row {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        ☰ <span>Google Play</span>
-    </div>
+    <!-- Barra de Navegação -->
+    <nav class="top-nav">
+        <a href="#" class="logo">
+            <!-- Usando um ícone simulando o logo da Play Store -->
+            <span class="material-symbols-outlined" style="color: #01875f; font-size: 32px; margin-right: 8px;">play_arrow</span>
+            Google Play
+        </a>
+    </nav>
 
     <div class="container">
-        <!-- Cabeçalho do App -->
-        <div class="app-header">
-            <div class="app-icon">UL</div>
-            <div class="app-info">
-                <h1 class="app-title">UpdaterLab</h1>
-                <p class="app-dev">Seu Nome / Empresa</p>
+        <!-- Cabeçalho do Aplicativo -->
+        <header class="app-header">
+            <div class="app-icon">D!</div>
+            <div class="app-title-section">
+                <h1 class="app-title">Descubra já</h1>
+                <a href="#" class="app-developer">Seu Nome / Estúdio</a>
+                <div class="app-tags">Contém anúncios · Compras no app</div>
                 
-                <div class="app-stats">
-                    <div class="stat-item">
-                        <span class="stat-value">4,8 ★</span>
-                        <span>12 mil avaliações</span>
+                <div class="stats-row">
+                    <div class="stat-block">
+                        <div class="stat-top">4,9 <span class="material-symbols-outlined star">star</span></div>
+                        <div class="stat-bottom">43 mil avaliações</div>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-value">100 mil+</span>
-                        <span>Downloads</span>
+                    <div class="stat-block">
+                        <div class="stat-top">1 mi+</div>
+                        <div class="stat-bottom">Downloads</div>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-value">Livre</span>
-                        <span>Classificação</span>
+                    <div class="stat-block">
+                        <div class="stat-top"><span class="material-symbols-outlined" style="font-size: 18px;">family_restroom</span></div>
+                        <div class="stat-bottom">Livre</div>
                     </div>
                 </div>
 
-                <!-- IMPORTANTE: Substitua o href pelo link "Raw" do seu .apk no GitHub -->
-                <a href="https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/acesso.apk" download class="install-btn">Instalar</a>
+                <!-- Botão de Instalar com link para o GitHub -->
+                <a href="https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/acesso.apk" download class="install-btn">
+                    Instalar
+                </a>
             </div>
-        </div>
+        </header>
 
         <!-- Capturas de Tela -->
-        <div class="section-title">Sobre este app</div>
-        <div class="screenshots">
-            <div class="screenshot-img">Tela Principal</div>
-            <div class="screenshot-img">Status do Sistema</div>
-            <div class="screenshot-img">Configurações</div>
+        <div class="section-header">
+            <h2 class="section-title">Sobre este app</h2>
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
+        
+        <div class="screenshots-container">
+            <div class="screenshot">Tela Inicial</div>
+            <div class="screenshot">Explorar Conteúdo</div>
+            <div class="screenshot">Resultados</div>
+            <div class="screenshot">Perfil de Usuário</div>
         </div>
 
-        <p class="description">
-            O UpdaterLab é a ferramenta definitiva para gerenciamento de pacotes e atualizações do sistema em dispositivos embarcados. Mantenha seu ambiente seguro, estável e sempre na versão mais recente com um processo de instalação silencioso e eficiente.
+        <p class="about-text">
+            O <strong>Descubra já</strong> é a sua ferramenta definitiva para explorar novos conteúdos e tendências. Com uma interface moderna e intuitiva, você pode navegar de forma rápida e segura. Nossa arquitetura foi totalmente otimizada para garantir que o app não trave no seu dispositivo, oferecendo uma experiência fluida desde o primeiro clique.
         </p>
 
-        <!-- Avaliações e Comentários -->
-        <div class="section-title">Classificações e resenhas</div>
-        
-        <div class="reviews-container">
-            <div class="review">
-                <div class="review-header">
-                    <div class="avatar">C</div>
-                    <div>
-                        <div class="author-name">Carlos Silva</div>
-                        <div class="review-date">12 de setembro de 2026</div>
-                    </div>
-                </div>
-                <div class="stars">★★★★★</div>
-                <div class="review-text">
-                    Excelente gerenciador! A nova interface ficou muito mais amigável. A mensagem "carregando aplicativo, aguarde" durante o processo deixou a tela bem menos assustadora para o usuário final do que a antiga tela de atualização do sistema. Funciona perfeitamente.
-                </div>
-            </div>
+        <!-- Avaliações e Resenhas -->
+        <div class="section-header">
+            <h2 class="section-title">Classificações e resenhas</h2>
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
 
-            <div class="review">
-                <div class="review-header">
-                    <div class="avatar">M</div>
-                    <div>
-                        <div class="author-name">Mariana Costa</div>
-                        <div class="review-date">5 de setembro de 2026</div>
-                    </div>
+        <div class="ratings-overview">
+            <div class="rating-huge">4,9</div>
+            <div>
+                <div class="rating-stars">
+                    <span class="material-symbols-outlined star">star</span>
+                    <span class="material-symbols-outlined star">star</span>
+                    <span class="material-symbols-outlined star">star</span>
+                    <span class="material-symbols-outlined star">star</span>
+                    <span class="material-symbols-outlined star">star</span>
                 </div>
-                <div class="stars">★★★★☆</div>
-                <div class="review-text">
-                    O aplicativo cumpre o que promete e compila sem erros no Gradle agora. Só acho que poderiam adicionar um modo escuro na próxima versão. Tirando isso, o fluxo de instalação de pacotes está super rápido!
-                </div>
+                <div class="rating-count">43.000 avaliações</div>
             </div>
         </div>
+
+        <!-- Comentário 1 -->
+        <div class="review-card">
+            <div class="reviewer-info">
+                <div class="avatar" style="background-color: #E91E63;">A</div>
+                <div class="reviewer-name">Ana Beatriz</div>
+            </div>
+            <div class="review-meta">
+                <div class="rating-stars" style="margin: 0; font-size: 12px;">
+                    <span class="material-symbols-outlined star" style="font-size: 14px;">star</span>
+                    <span class="material-symbols-outlined star" style="font-size: 14px;">star</span>
+                    <span class="material-symbols-outlined star" style="font-size: 14px;">star</span>
+                    <span class="material-symbols-outlined star" style="font-size: 14px;">star</span>
+                    <span class="material-symbols-outlined star" style="font-size: 14px;">star</span>
+                </div>
+                <div class="review-date">10 de setembro de 2026</div>
+            </div>
+            <div class="review-content">
+                Aplicativo excelente! A interface é muito amigável. Achei genial a atenção aos detalhes da equipe, logo na entrada do app a mensagem de "carregando aplicativo, aguarde" passa muita segurança e não assusta o usuário. Vale as 5 estrelas!
+            </div>
+            <div class="helpful-actions">
+                142 pessoas acharam isso útil
+                <span class="material-symbols-outlined" style="font-size: 16px; cursor: pointer;">thumb_up</span>
+                <span class="material-symbols-outlined" style="font-size: 16px; cursor: pointer;">more_vert</span>
+            </div>
+        </div>
+
+        <!-- Comentário 2 -->
+        <div class="review-card">
+            <div class="reviewer-info">
+                <div class="avatar" style="background-color: #00BCD4;">L</div>
+                <div class="reviewer-name">Lucas Mendes</div>
+            </div>
+            <div class="review-meta">
+                <div class="rating-stars" style="margin: 0; font-size: 12px;">
+                    <span class="material-symbols-outlined star" style="font-size: 14px;">star</span>
+                    <span class="material-symbols-outlined star" style="font-size: 14px;">star</span>
+                    <span class="material-symbols-outlined star" style="font-size: 14px;">star</span>
+                    <span class="material-symbols-outlined star" style="font-size: 14px;">star</span>
+                    <span class="material-symbols-outlined star" style="font-size: 14px;">star</span>
+                </div>
+                <div class="review-date">5 de setembro de 2026</div>
+            </div>
+            <div class="review-content">
+                Roda extremamente liso! Dá para perceber que o código fonte e as dependências no Gradle estão perfeitamente configurados. Não tive nenhum problema de travamento ou fechamento forçado. Recomendo baixar.
+            </div>
+            <div class="helpful-actions">
+                89 pessoas acharam isso útil
+                <span class="material-symbols-outlined" style="font-size: 16px; cursor: pointer;">thumb_up</span>
+                <span class="material-symbols-outlined" style="font-size: 16px; cursor: pointer;">more_vert</span>
+            </div>
+        </div>
+
     </div>
 
 </body>
